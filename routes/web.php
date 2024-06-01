@@ -28,3 +28,9 @@ Route::get('productos/new', [ProductosController::class,'create']);
 
 //insert
 Route::post('productos', [ProductosController::class, 'store']);
+
+//edit
+Route::get('productos/editar/{id}', [ProductosController::class, 'edit'])->name('productos.editar');
+
+//update
+Route::post('productos/{id}', [ProductosController::class, 'update'])->name('productos.actualizar');

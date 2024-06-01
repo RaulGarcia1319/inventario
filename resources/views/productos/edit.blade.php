@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Nuevo Producto')
+@section('title', 'Editar Producto')
     
 
 @section('nav')
@@ -18,7 +18,7 @@
 </div>
 
 
-  @section('contenido')
+@section('contenido')
 
 <div class="container">
 
@@ -26,37 +26,37 @@
 
     <div class="col-4">
 
-      <h4 class="text-center">Nuevo Producto</h1>
+      <h4 class="text-center">Editar Producto</h1>
       <hr>
 
-      <form action="{{ url('productos') }}" method="post">
+      <form action="{{ route('productos.actualizar', ['id' => $producto->idProducto]) }}" method="post">
 
-
-          @csrf
+        @method('POST')
+        @csrf
 
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre del producto" value="{{ old('nombre') }}">
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre del producto" value="{{ $producto->nombre }}">
             </div>
 
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo</label>
-                <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Ingresa el tipo de producto" value="{{ old('tipo') }}">
+                <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Ingresa el tipo de producto" value="{{ $producto->tipo }}">
             </div>
 
             <div class="mb-3">
                 <label for="marca" class="form-label">Marca</label>
-                <input type="text" class="form-control" id="marca" name="marca" placeholder="Ingresa la marca" value="{{ old('marca') }}">
+                <input type="text" class="form-control" id="marca" name="marca" placeholder="Ingresa la marca" value="{{ $producto->marca }}">
             </div>
 
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
-                <input type="text" class="form-control" id="precio" name="precio" placeholder="Ingresa el precio" value="{{ old('precio') }}">
+                <input type="text" class="form-control" id="precio" name="precio" placeholder="Ingresa el precio" value="{{ $producto->precio }}">
             </div>
 
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripcion:</label>
-                <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5" value="{{ old('descripcion') }}">
+                <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5">{{ $producto->descripcion }}"
                 </textarea>
             </div>
 

@@ -40,5 +40,36 @@ class ProductosController extends Controller
         return redirect('productos');
     }
 
+    //pide a travez de la funcion mostrarProducto del modelo
+    public function edit($id)
+    {
+        $producto = ProductosModel::mostrarProducto($id);
+
+        return view('productos.edit', compact('producto'));
+    }
+
+    //verifica y busca la funcion correspondiente dentro del modelo que se encarga de llamar la base
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'tipo' => 'required',
+            'marca' => 'required',
+            'precio' => '',
+            'descripcion' => 'required'
+        ]);
+
+        ProductosModel::actualizarProducto(
+            $id,
+            $request->input('nombre'),
+            $request->input('tipo'),
+            $request->input('marca'),
+            $request->input('precio'),
+            $request->input('descripcion')
+        );
+    
+        return redirect('productos');
+    }
+
 
 }
