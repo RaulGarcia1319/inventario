@@ -34,3 +34,7 @@ Route::get('productos/editar/{id}', [ProductosController::class, 'edit'])->name(
 
 //update
 Route::post('productos/{id}', [ProductosController::class, 'update'])->name('productos.actualizar');
+
+//delete 
+Route::delete('productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
+

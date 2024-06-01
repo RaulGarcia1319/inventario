@@ -48,4 +48,10 @@ class ProductosModel
         ]);
     }
 
+
+    public static function eliminarProducto($id)
+    {
+        DB::table('producto')->where('idProducto', $id)->delete();
+    }
+
 }

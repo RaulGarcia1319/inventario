@@ -72,4 +72,14 @@ class ProductosController extends Controller
     }
 
 
+    public function destroy($id)
+    {
+        ProductosModel::eliminarProducto($id);
+
+        return redirect('productos')->with('eliminar', 'ok');
+
+
+    }
+
+
 }
