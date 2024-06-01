@@ -22,3 +22,9 @@ Route::get('/', function () {
 
 //lista
 Route::get('productos', [ProductosController::class,'index']);
+
+//create
+Route::get('productos/new', [ProductosController::class,'create']);
+
+//insert
+Route::post('productos', [ProductosController::class, 'store']);

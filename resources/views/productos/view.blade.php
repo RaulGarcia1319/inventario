@@ -30,9 +30,12 @@
       <hr>
 
       <div class="col">
-        
+
+        <a href="{{ url('productos/new') }}" class="btn btn-success">+ Agregar</a>
+
       </div>
       <br>
+      {{-- tabla vista productos --}}
         <table class="table table-hover">
             <thead class="table-dark">
               <tr>
